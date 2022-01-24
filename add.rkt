@@ -5,9 +5,17 @@
 (define (-- x)
   (- x 1))
 
-(define (add x y)
+; linear iteration
+(define (add_iter x y)
   (if (= x 0)
     y
-    (add (-- x) (++ y))))
+    (add_iter (-- x) (++ y))))
 
-(add 2 2)
+; linear recursion
+(define (add_recur x y)
+  (if (= x 0)
+     y
+     (++ (add_recur (-- x) y))))
+
+(add_recur 2 2)
+(add_iter 2 2)
